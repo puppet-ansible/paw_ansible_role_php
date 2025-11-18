@@ -1,0 +1,364 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Execute the entire Ansible role imperatively",
+  "input_method": "environment",
+  "parameters": {
+    "php_apc_shm_size": {
+      "description": "Ansible role variable (default: 96M)",
+      "type": "Optional[String]"
+    },
+    "php_apc_enable_cli": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[String]"
+    },
+    "php_fpm_daemon": {
+      "description": "",
+      "type": "Optional[String]"
+    },
+    "php_fpm_conf_path": {
+      "description": "",
+      "type": "Optional[String]"
+    },
+    "php_opcache_zend_extension": {
+      "description": "OpCache settings.",
+      "type": "Optional[String]"
+    },
+    "php_opcache_enable": {
+      "description": "Ansible role variable (default: 1)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_enable_cli": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_memory_consumption": {
+      "description": "Ansible role variable (default: 96)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_interned_strings_buffer": {
+      "description": "Ansible role variable (default: 16)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_max_accelerated_files": {
+      "description": "Ansible role variable (default: 4096)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_max_wasted_percentage": {
+      "description": "Ansible role variable (default: 5)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_validate_timestamps": {
+      "description": "Ansible role variable (default: 1)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_revalidate_path": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_revalidate_freq": {
+      "description": "Ansible role variable (default: 2)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_max_file_size": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[String]"
+    },
+    "php_opcache_blacklist_filename": {
+      "description": "Ansible role variable (default: )",
+      "type": "Optional[String]"
+    },
+    "php_short_open_tag": {
+      "description": "Ansible role variable (default: Off)",
+      "type": "Optional[String]"
+    },
+    "php_precision": {
+      "description": "Ansible role variable (default: 14)",
+      "type": "Optional[Integer]"
+    },
+    "php_output_buffering": {
+      "description": "Ansible role variable (default: 4096)",
+      "type": "Optional[String]"
+    },
+    "php_serialize_precision": {
+      "description": "Ansible role variable (default: -1)",
+      "type": "Optional[String]"
+    },
+    "php_expose_php": {
+      "description": "Ansible role variable (default: On)",
+      "type": "Optional[String]"
+    },
+    "php_max_execution_time": {
+      "description": "Ansible role variable (default: 60)",
+      "type": "Optional[String]"
+    },
+    "php_max_input_time": {
+      "description": "Ansible role variable (default: 60)",
+      "type": "Optional[String]"
+    },
+    "php_max_input_vars": {
+      "description": "Ansible role variable (default: 1000)",
+      "type": "Optional[String]"
+    },
+    "php_memory_limit": {
+      "description": "Ansible role variable (default: 256M)",
+      "type": "Optional[String]"
+    },
+    "php_error_reporting": {
+      "description": "Ansible role variable (default: E_ALL & ~E_DEPRECATED & ~E_STRICT)",
+      "type": "Optional[String]"
+    },
+    "php_display_errors": {
+      "description": "Ansible role variable (default: Off)",
+      "type": "Optional[String]"
+    },
+    "php_display_startup_errors": {
+      "description": "Ansible role variable (default: Off)",
+      "type": "Optional[String]"
+    },
+    "php_post_max_size": {
+      "description": "Ansible role variable (default: 32M)",
+      "type": "Optional[String]"
+    },
+    "php_realpath_cache_size": {
+      "description": "Ansible role variable (default: 32K)",
+      "type": "Optional[String]"
+    },
+    "php_file_uploads": {
+      "description": "Ansible role variable (default: On)",
+      "type": "Optional[String]"
+    },
+    "php_upload_max_filesize": {
+      "description": "Ansible role variable (default: 64M)",
+      "type": "Optional[String]"
+    },
+    "php_max_file_uploads": {
+      "description": "Ansible role variable (default: 20)",
+      "type": "Optional[String]"
+    },
+    "php_allow_url_fopen": {
+      "description": "Ansible role variable (default: On)",
+      "type": "Optional[String]"
+    },
+    "php_date_timezone": {
+      "description": "Ansible role variable (default: America/Chicago)",
+      "type": "Optional[String]"
+    },
+    "php_sendmail_path": {
+      "description": "Ansible role variable (default: /usr/sbin/sendmail -t -i)",
+      "type": "Optional[String]"
+    },
+    "php_session_save_handler": {
+      "description": "Ansible role variable (default: files)",
+      "type": "Optional[String]"
+    },
+    "php_session_save_path": {
+      "description": "Ansible role variable (default: )",
+      "type": "Optional[String]"
+    },
+    "php_session_cookie_lifetime": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[Integer]"
+    },
+    "php_session_gc_probability": {
+      "description": "Ansible role variable (default: 1)",
+      "type": "Optional[Integer]"
+    },
+    "php_session_gc_divisor": {
+      "description": "Ansible role variable (default: 1000)",
+      "type": "Optional[Integer]"
+    },
+    "php_session_gc_maxlifetime": {
+      "description": "Ansible role variable (default: 1440)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pool_user": {
+      "description": "",
+      "type": "Optional[String]"
+    },
+    "php_fpm_pool_group": {
+      "description": "",
+      "type": "Optional[String]"
+    },
+    "php_enablerepo": {
+      "description": "for RHEL/CentOS.",
+      "type": "Optional[String]"
+    },
+    "php_packages_extra": {
+      "description": "Extra packages to install (in addition to distro-specific default lists).",
+      "type": "Optional[Array]"
+    },
+    "php_packages_state": {
+      "description": "you want to upgrade or switch versions using a new repo.",
+      "type": "Optional[String]"
+    },
+    "php_install_recommends": {
+      "description": "Whether to install recommended packages. Used only for Debian/Ubuntu.",
+      "type": "Optional[Boolean]"
+    },
+    "php_enable_webserver": {
+      "description": "Set this to false if you're not using PHP with Apache/Nginx/etc.",
+      "type": "Optional[Boolean]"
+    },
+    "php_enable_php_fpm": {
+      "description": "PHP-FPM configuration.",
+      "type": "Optional[Boolean]"
+    },
+    "php_fpm_state": {
+      "description": "Ansible role variable (default: started)",
+      "type": "Optional[String]"
+    },
+    "php_fpm_handler_state": {
+      "description": "Ansible role variable (default: restarted)",
+      "type": "Optional[String]"
+    },
+    "php_fpm_enabled_on_boot": {
+      "description": "Ansible role variable (default: true)",
+      "type": "Optional[Boolean]"
+    },
+    "php_fpm_listen": {
+      "description": "Ansible role variable (default: 127.0.0.1:9000)",
+      "type": "Optional[String]"
+    },
+    "php_fpm_listen_allowed_clients": {
+      "description": "Ansible role variable (default: 127.0.0.1)",
+      "type": "Optional[String]"
+    },
+    "php_fpm_pm_max_children": {
+      "description": "Ansible role variable (default: 50)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pm_start_servers": {
+      "description": "Ansible role variable (default: 5)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pm_min_spare_servers": {
+      "description": "Ansible role variable (default: 5)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pm_max_spare_servers": {
+      "description": "Ansible role variable (default: 5)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pm_max_requests": {
+      "description": "Ansible role variable (default: 0)",
+      "type": "Optional[Integer]"
+    },
+    "php_fpm_pm_status_path": {
+      "description": "Ansible role variable (default: )",
+      "type": "Optional[String]"
+    },
+    "php_fpm_pools": {
+      "description": "PHP-FPM pool configuration.",
+      "type": "Optional[Array]"
+    },
+    "php_executable": {
+      "description": "The executable to run when calling PHP from the command line.",
+      "type": "Optional[String]"
+    },
+    "php_enable_apc": {
+      "description": "APCu settings.",
+      "type": "Optional[Boolean]"
+    },
+    "php_use_managed_ini": {
+      "description": "Any and all changes to /etc/php.ini will be your responsibility.",
+      "type": "Optional[Boolean]"
+    },
+    "php_disable_functions": {
+      "description": "Ansible role variable (default: [])",
+      "type": "Optional[Array]"
+    },
+    "php_install_from_source": {
+      "description": "Install PHP from source (instead of using a package manager) with these vars.",
+      "type": "Optional[Boolean]"
+    },
+    "php_source_repo": {
+      "description": "Ansible role variable (default: https://github.com/php/php-src.git)",
+      "type": "Optional[String]"
+    },
+    "php_source_version": {
+      "description": "Ansible role variable (default: master)",
+      "type": "Optional[String]"
+    },
+    "php_source_clone_dir": {
+      "description": "Ansible role variable (default: ~/php-src)",
+      "type": "Optional[String]"
+    },
+    "php_source_clone_depth": {
+      "description": "Ansible role variable (default: 1)",
+      "type": "Optional[Integer]"
+    },
+    "php_source_install_path": {
+      "description": "Ansible role variable (default: /opt/php)",
+      "type": "Optional[String]"
+    },
+    "php_source_install_gmp_path": {
+      "description": "Ansible role variable (default: /usr/include/x86_64-linux-gnu/gmp.h)",
+      "type": "Optional[String]"
+    },
+    "php_source_mysql_config": {
+      "description": "Ansible role variable (default: /usr/bin/mysql_config)",
+      "type": "Optional[String]"
+    },
+    "php_source_make_command": {
+      "description": "For faster compile time: \"make --jobs=X\" where X is # of cores present.",
+      "type": "Optional[String]"
+    },
+    "php_source_configure_command": {
+      "description": "Ansible role variable (default: ./configure --prefix={{ php_source_install_path }} --with-config-file-path={{ php_conf_paths | first }} --enable-mbstring --enable-zip --enable-bcmath --enable-pcntl --enable-ftp --enable-exif --enable-calendar --enable-opcache --enable-pdo --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-curl --with-mcrypt --with-iconv --with-gmp --with-pspell --with-gd --with-jpeg-dir=/usr --with-png-dir=/usr --with-zlib-dir=/usr --with-xpm-dir=/usr --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-jis-conv --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-recode=/usr --with-mysqli={{ php_source_mysql_config }}\n)",
+      "type": "Optional[String]"
+    },
+    "par_tags": {
+      "description": "An array of Ansible tags to execute (optional)",
+      "type": "Optional[Array[String]]"
+    },
+    "par_skip_tags": {
+      "description": "An array of Ansible tags to skip (optional)",
+      "type": "Optional[Array[String]]"
+    },
+    "par_start_at_task": {
+      "description": "The name of the task to start execution at (optional)",
+      "type": "Optional[String]"
+    },
+    "par_limit": {
+      "description": "Limit playbook execution to specific hosts (optional)",
+      "type": "Optional[String]"
+    },
+    "par_verbose": {
+      "description": "Enable verbose output from Ansible (optional)",
+      "type": "Optional[Boolean]"
+    },
+    "par_check_mode": {
+      "description": "Run Ansible in check mode (dry-run) (optional)",
+      "type": "Optional[Boolean]"
+    },
+    "par_timeout": {
+      "description": "Timeout in seconds for playbook execution (optional)",
+      "type": "Optional[Integer]"
+    },
+    "par_user": {
+      "description": "Remote user to use for Ansible connections (optional)",
+      "type": "Optional[String]"
+    },
+    "par_env_vars": {
+      "description": "Additional environment variables for ansible-playbook execution (optional)",
+      "type": "Optional[Hash]"
+    }
+  },
+  "implementations": [
+    {
+      "name": "paw_ansible_role_php.sh",
+      "requirements": [
+        "shell"
+      ],
+      "input_method": "environment"
+    },
+    {
+      "name": "paw_ansible_role_php.ps1",
+      "requirements": [
+        "powershell"
+      ],
+      "input_method": "environment"
+    }
+  ]
+}

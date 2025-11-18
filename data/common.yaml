@@ -1,0 +1,92 @@
+---
+paw_ansible_role_php::php_apc_shm_size: 96M
+paw_ansible_role_php::php_apc_enable_cli: '0'
+paw_ansible_role_php::php_opcache_zend_extension: opcache.so
+paw_ansible_role_php::php_opcache_enable: '1'
+paw_ansible_role_php::php_opcache_enable_cli: '0'
+paw_ansible_role_php::php_opcache_memory_consumption: '96'
+paw_ansible_role_php::php_opcache_interned_strings_buffer: '16'
+paw_ansible_role_php::php_opcache_max_accelerated_files: '4096'
+paw_ansible_role_php::php_opcache_max_wasted_percentage: '5'
+paw_ansible_role_php::php_opcache_validate_timestamps: '1'
+paw_ansible_role_php::php_opcache_revalidate_path: '0'
+paw_ansible_role_php::php_opcache_revalidate_freq: '2'
+paw_ansible_role_php::php_opcache_max_file_size: '0'
+paw_ansible_role_php::php_opcache_blacklist_filename: ''
+paw_ansible_role_php::php_short_open_tag: 'Off'
+paw_ansible_role_php::php_precision: 14
+paw_ansible_role_php::php_output_buffering: '4096'
+paw_ansible_role_php::php_serialize_precision: "-1"
+paw_ansible_role_php::php_expose_php: 'On'
+paw_ansible_role_php::php_max_execution_time: '60'
+paw_ansible_role_php::php_max_input_time: '60'
+paw_ansible_role_php::php_max_input_vars: '1000'
+paw_ansible_role_php::php_memory_limit: 256M
+paw_ansible_role_php::php_error_reporting: E_ALL & ~E_DEPRECATED & ~E_STRICT
+paw_ansible_role_php::php_display_errors: 'Off'
+paw_ansible_role_php::php_display_startup_errors: 'Off'
+paw_ansible_role_php::php_post_max_size: 32M
+paw_ansible_role_php::php_realpath_cache_size: 32K
+paw_ansible_role_php::php_file_uploads: 'On'
+paw_ansible_role_php::php_upload_max_filesize: 64M
+paw_ansible_role_php::php_max_file_uploads: '20'
+paw_ansible_role_php::php_allow_url_fopen: 'On'
+paw_ansible_role_php::php_date_timezone: America/Chicago
+paw_ansible_role_php::php_sendmail_path: "/usr/sbin/sendmail -t -i"
+paw_ansible_role_php::php_session_save_handler: files
+paw_ansible_role_php::php_session_save_path: ''
+paw_ansible_role_php::php_session_cookie_lifetime: 0
+paw_ansible_role_php::php_session_gc_probability: 1
+paw_ansible_role_php::php_session_gc_divisor: 1000
+paw_ansible_role_php::php_session_gc_maxlifetime: 1440
+paw_ansible_role_php::php_enablerepo: ''
+paw_ansible_role_php::php_packages_extra: []
+paw_ansible_role_php::php_packages_state: present
+paw_ansible_role_php::php_install_recommends: true
+paw_ansible_role_php::php_enable_webserver: true
+paw_ansible_role_php::php_enable_php_fpm: false
+paw_ansible_role_php::php_fpm_state: started
+paw_ansible_role_php::php_fpm_handler_state: restarted
+paw_ansible_role_php::php_fpm_enabled_on_boot: true
+paw_ansible_role_php::php_fpm_listen: 127.0.0.1:9000
+paw_ansible_role_php::php_fpm_listen_allowed_clients: 127.0.0.1
+paw_ansible_role_php::php_fpm_pm_max_children: 50
+paw_ansible_role_php::php_fpm_pm_start_servers: 5
+paw_ansible_role_php::php_fpm_pm_min_spare_servers: 5
+paw_ansible_role_php::php_fpm_pm_max_spare_servers: 5
+paw_ansible_role_php::php_fpm_pm_max_requests: 0
+paw_ansible_role_php::php_fpm_pm_status_path: ''
+paw_ansible_role_php::php_fpm_pools:
+- pool_name: www
+  pool_template: www.conf.j2
+  pool_listen: "{{ php_fpm_listen }}"
+  pool_listen_allowed_clients: "{{ php_fpm_listen_allowed_clients }}"
+  pool_pm: dynamic
+  pool_pm_max_children: "{{ php_fpm_pm_max_children }}"
+  pool_pm_start_servers: "{{ php_fpm_pm_start_servers }}"
+  pool_pm_min_spare_servers: "{{ php_fpm_pm_min_spare_servers }}"
+  pool_pm_max_spare_servers: "{{ php_fpm_pm_max_spare_servers }}"
+  pool_pm_max_requests: "{{ php_fpm_pm_max_requests }}"
+  pool_pm_status_path: "{{ php_fpm_pm_status_path }}"
+paw_ansible_role_php::php_executable: php
+paw_ansible_role_php::php_enable_apc: true
+paw_ansible_role_php::php_use_managed_ini: true
+paw_ansible_role_php::php_disable_functions: []
+paw_ansible_role_php::php_install_from_source: false
+paw_ansible_role_php::php_source_repo: https://github.com/php/php-src.git
+paw_ansible_role_php::php_source_version: master
+paw_ansible_role_php::php_source_clone_dir: "~/php-src"
+paw_ansible_role_php::php_source_clone_depth: 1
+paw_ansible_role_php::php_source_install_path: "/opt/php"
+paw_ansible_role_php::php_source_install_gmp_path: "/usr/include/x86_64-linux-gnu/gmp.h"
+paw_ansible_role_php::php_source_mysql_config: "/usr/bin/mysql_config"
+paw_ansible_role_php::php_source_make_command: make
+paw_ansible_role_php::php_source_configure_command: "./configure --prefix={{ php_source_install_path
+  }} --with-config-file-path={{ php_conf_paths | first }} --enable-mbstring --enable-zip
+  --enable-bcmath --enable-pcntl --enable-ftp --enable-exif --enable-calendar --enable-opcache
+  --enable-pdo --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-curl
+  --with-mcrypt --with-iconv --with-gmp --with-pspell --with-gd --with-jpeg-dir=/usr
+  --with-png-dir=/usr --with-zlib-dir=/usr --with-xpm-dir=/usr --with-freetype-dir=/usr
+  --enable-gd-native-ttf --enable-gd-jis-conv --with-openssl --with-pdo-mysql=/usr
+  --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-recode=/usr --with-mysqli={{
+  php_source_mysql_config }}\n"
