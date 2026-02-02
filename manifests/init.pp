@@ -77,6 +77,7 @@
 # @param php_source_mysql_config
 # @param php_source_make_command For faster compile time: "make --jobs=X" where X is # of cores present.
 # @param php_source_configure_command
+# @param par_vardir Base directory for Puppet agent cache (uses lookup('paw::par_vardir') for common config)
 # @param par_tags An array of Ansible tags to execute (optional)
 # @param par_skip_tags An array of Ansible tags to skip (optional)
 # @param par_start_at_task The name of the task to start execution at (optional)
@@ -165,6 +166,7 @@ class paw_ansible_role_php (
   String $php_source_mysql_config = '/usr/bin/mysql_config',
   String $php_source_make_command = 'make',
   String $php_source_configure_command = './configure --prefix={{ php_source_install_path }} --with-config-file-path={{ php_conf_paths | first }} --enable-mbstring --enable-zip --enable-bcmath --enable-pcntl --enable-ftp --enable-exif --enable-calendar --enable-opcache --enable-pdo --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-wddx --with-curl --with-mcrypt --with-iconv --with-gmp --with-pspell --with-gd --with-jpeg-dir=/usr --with-png-dir=/usr --with-zlib-dir=/usr --with-xpm-dir=/usr --with-freetype-dir=/usr --enable-gd-native-ttf --enable-gd-jis-conv --with-openssl --with-pdo-mysql=/usr --with-gettext=/usr --with-zlib=/usr --with-bz2=/usr --with-recode=/usr --with-mysqli={{ php_source_mysql_config }}\n',
+  Optional[Stdlib::Absolutepath] $par_vardir = undef,
   Optional[Array[String]] $par_tags = undef,
   Optional[Array[String]] $par_skip_tags = undef,
   Optional[String] $par_start_at_task = undef,
@@ -178,14 +180,13 @@ class paw_ansible_role_php (
   Optional[Boolean] $par_exclusive = undef
 ) {
 # Execute the Ansible role using PAR (Puppet Ansible Runner)
-  $vardir = $facts['puppet_vardir'] ? {
-    undef   => $settings::vardir ? {
-      undef   => '/opt/puppetlabs/puppet/cache',
-      default => $settings::vardir,
-    },
-    default => $facts['puppet_vardir'],
+# Playbook synced via pluginsync to agent's cache directory
+# Check for common paw::par_vardir setting, then module-specific, then default
+  $_par_vardir = $par_vardir ? {
+    undef   => lookup('paw::par_vardir', Stdlib::Absolutepath, 'first', '/opt/puppetlabs/puppet/cache'),
+    default => $par_vardir,
   }
-  $playbook_path = "${vardir}/lib/puppet_x/ansible_modules/ansible_role_php/playbook.yml"
+  $playbook_path = "${_par_vardir}/lib/puppet_x/ansible_modules/ansible_role_php/playbook.yml"
 
   par { 'paw_ansible_role_php-main':
     ensure        => present,
