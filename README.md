@@ -8,7 +8,7 @@ PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
 
 ## Conversion Details
 
-- **Converted on**: 2026-02-02
+- **Converted on**: 2026-02-04
 - **Original Author**: geerlingguy
 - **License**: license (BSD, MIT)
 
